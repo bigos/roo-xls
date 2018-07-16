@@ -52,7 +52,7 @@ module Roo
       # inspecting imported file
       # @workbook.worksheets.first
       # pp  @workbook.worksheets.first.rows[13]
-
+      # merged_cells seem to be pairs of ranges starting at 0
 
       super(filename, options)
       @formula = {}
