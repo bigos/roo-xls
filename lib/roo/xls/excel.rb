@@ -24,6 +24,9 @@ module Roo
       file_warning = options[:file_warning] || :error
       mode = options[:mode] || 'rb+'
 
+      byebug
+      13==13
+
       if is_stream?(filename)
         @workbook = ::Spreadsheet.open(filename, mode)
       else
