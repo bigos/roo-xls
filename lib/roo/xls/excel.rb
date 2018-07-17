@@ -63,8 +63,8 @@ module Roo
     end
 
     def spannings()
-      byebug
-      1==1
+      sheet_index = sheets.find_index default_sheet
+      data = worksheets[sheet_index].merged_cells
 
       result = {}
       data.collect do |x|
