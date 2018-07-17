@@ -54,12 +54,37 @@ module Roo
       # pp  @workbook.worksheets.first.rows[13]
       # merged_cells seem to be pairs of ranges starting at 0
 
+      # aaa = OldExcel.new OldExcel.test_file
+      # aaa.workbook.worksheets.first.merged_cells
+
       super(filename, options)
       @formula = {}
       @fonts = {}
     end
 
-    attr_reader :workbook
+    def spannings()
+      byebug
+      1==1
+
+      result = {}
+      data.collect do |x|
+        xfrom = x[0]
+        xto =   x[1]
+        yfrom = x[2]
+        yto =   x[3]
+        r = xfrom + 1
+        c = yfrom + 1
+        spanx = xto - xfrom
+        spany = yto - yfrom
+        rows =    spanx + 1
+        columns = spany + 1
+        newhash = { [r, c] => { columns: columns, rows: rows } }
+        result.merge! newhash
+        # byebug if xfrom <= 4
+        result
+      end
+      result
+    end
 
     def worksheets
       @worksheets ||= workbook.worksheets
